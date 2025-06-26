@@ -18,10 +18,12 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState, useEffect } from "react"
+import Link from "next/link"
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrollY, setScrollY] = useState(0)
+  const [showAllPortfolio, setShowAllPortfolio] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY)
@@ -200,8 +202,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto relative">
           {/* Modern Section Header with Gradient Title */}
           <div className="text-center mb-20">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-cyan-500/20 rounded-2xl mb-6">
-              <Volume2 className="w-8 h-8 text-cyan-400" />
+            <div className="w-32 h-20 mx-auto mb-6 rounded-2xl overflow-hidden relative">
+              <Image src="/public/placeholder.jpg" alt="Studio" fill className="object-cover" />
             </div>
             <h2 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
               <span className="bg-gradient-to-r from-white via-cyan-200 to-cyan-400 bg-clip-text text-transparent">
@@ -223,8 +225,8 @@ export default function Home() {
             >
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
-                  <div className="inline-flex items-center justify-center w-20 h-20 bg-cyan-500/30 rounded-2xl mb-6">
-                    <Mic className="w-10 h-10 text-cyan-400" />
+                  <div className="w-40 h-28 mb-6 rounded-2xl overflow-hidden relative">
+                    <Image src="/public/placeholder-logo.png" alt="Studio" fill className="object-cover" />
                   </div>
                   <h3 className="text-4xl font-bold mb-6">
                     <span className="bg-gradient-to-r from-white to-cyan-300 bg-clip-text text-transparent">
@@ -242,12 +244,12 @@ export default function Home() {
                 </div>
                 <div className="relative">
                   <div
-                    className="w-full h-64 bg-gradient-to-br from-cyan-500/30 to-blue-500/30 rounded-2xl flex items-center justify-center"
+                    className="w-full h-64 rounded-2xl overflow-hidden relative"
                     style={{
                       transform: `translateY(${scrollY * -0.03}px)`,
                     }}
                   >
-                    <Radio className="w-24 h-24 text-cyan-400/50" />
+                    <Image src="/public/placeholder-user.jpg" alt="Studio" fill className="object-cover" />
                   </div>
                 </div>
               </div>
@@ -291,6 +293,132 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Portfolio/Works Section */}
+      <section id="portfolio" className="py-32 px-6 bg-slate-900 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto relative">
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-cyan-500/20 rounded-2xl mb-6">
+              <Award className="w-8 h-8 text-cyan-400" />
+            </div>
+            <h2 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+              <span className="bg-gradient-to-r from-white via-cyan-200 to-cyan-400 bg-clip-text text-transparent">
+                Portfolio / Works
+              </span>
+            </h2>
+            <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+              Explore some of our recent projects and creative collaborations
+            </p>
+          </div>
+          <div className={showAllPortfolio ? "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8" : "overflow-x-auto pb-4"}>
+            <div className={showAllPortfolio ? "contents" : "flex space-x-8 min-w-[700px] md:min-w-0"}>
+              {[
+                {
+                  title: "Anikulapo",
+                  desc: "A mystical drama about Saro, a man who gains the power to conquer death.",
+                  img: "https://m.media-amazon.com/images/M/MV5BMjA2YjYwYjUtYjQwZi00YjQwLTg2YjMtYjQwYjQwYjQwYjQwXkEyXkFqcGdeQXVyMTUzOTczNzYz._V1_FMjpg_UX1000_.jpg",
+                  link: "https://www.imdb.com/title/tt21432050/"
+                },
+                {
+                  title: "Citation",
+                  desc: "A student battles a university's system after a sexual assault accusation.",
+                  img: "https://m.media-amazon.com/images/M/MV5BZTg2YjYwYjUtYjQwZi00YjQwLTg2YjMtYjQwYjQwYjQwYjQwXkEyXkFqcGdeQXVyMTUzOTczNzYz._V1_FMjpg_UX1000_.jpg",
+                  link: "https://www.imdb.com/title/tt11481312/"
+                },
+                {
+                  title: "Mokalik",
+                  desc: "A day in the life of an 11-year-old sent to work at a mechanic workshop.",
+                  img: "https://m.media-amazon.com/images/M/MV5BZTg2YjYwYjUtYjQwZi00YjQwLTg2YjMtYjQwYjQwYjQwYjQwXkEyXkFqcGdeQXVyMTUzOTczNzYz._V1_FMjpg_UX1000_.jpg",
+                  link: "https://www.imdb.com/title/tt10327136/"
+                },
+                {
+                  title: "Swallow",
+                  desc: "A woman faces tough choices in 1980s Lagos.",
+                  img: "https://m.media-amazon.com/images/M/MV5BZTg2YjYwYjUtYjQwZi00YjQwLTg2YjMtYjQwYjQwYjQwYjQwXkEyXkFqcGdeQXVyMTUzOTczNzYz._V1_FMjpg_UX1000_.jpg",
+                  link: "https://www.imdb.com/title/tt14391622/"
+                },
+                {
+                  title: "Tenant of the House",
+                  desc: "A political drama about a young legislator's journey.",
+                  img: "https://m.media-amazon.com/images/M/MV5BZTg2YjYwYjUtYjQwZi00YjQwLTg2YjMtYjQwYjQwYjQwYjQwXkEyXkFqcGdeQXVyMTUzOTczNzYz._V1_FMjpg_UX1000_.jpg",
+                  link: "https://www.imdb.com/title/tt16287560/"
+                },
+                {
+                  title: "The Bridge",
+                  desc: "A love story between two people from different backgrounds.",
+                  img: "https://m.media-amazon.com/images/M/MV5BZTg2YjYwYjUtYjQwZi00YjQwLTg2YjMtYjQwYjQwYjQwYjQwXkEyXkFqcGdeQXVyMTUzOTczNzYz._V1_FMjpg_UX1000_.jpg",
+                  link: "https://www.imdb.com/title/tt8193396/"
+                },
+                {
+                  title: "Omugwo",
+                  desc: "A comedy about new parents and their mothers-in-law.",
+                  img: "https://m.media-amazon.com/images/M/MV5BZTg2YjYwYjUtYjQwZi00YjQwLTg2YjMtYjQwYjQwYjQwYjQwXkEyXkFqcGdeQXVyMTUzOTczNzYz._V1_FMjpg_UX1000_.jpg",
+                  link: "https://www.imdb.com/title/tt15150392/"
+                },
+                {
+                  title: "Diamonds in the Sky",
+                  desc: "Three families are united by cancer.",
+                  img: "https://m.media-amazon.com/images/M/MV5BZTg2YjYwYjUtYjQwZi00YjQwLTg2YjMtYjQwYjQwYjQwYjQwXkEyXkFqcGdeQXVyMTUzOTczNzYz._V1_FMjpg_UX1000_.jpg",
+                  link: "https://www.imdb.com/title/tt14605694/"
+                },
+                {
+                  title: "Hanatu",
+                  desc: "A short film about hope and healing.",
+                  img: "https://m.media-amazon.com/images/M/MV5BZTg2YjYwYjUtYjQwZi00YjQwLTg2YjMtYjQwYjQwYjQwYjQwXkEyXkFqcGdeQXVyMTUzOTczNzYz._V1_FMjpg_UX1000_.jpg",
+                  link: "https://www.imdb.com/title/tt8493700/"
+                },
+                {
+                  title: "Djalifa",
+                  desc: "A story of love and tradition. (No description found)",
+                  img: "https://m.media-amazon.com/images/M/MV5BZTg2YjYwYjUtYjQwZi00YjQwLTg2YjMtYjQwYjQwYjQwYjQwXkEyXkFqcGdeQXVyMTUzOTczNzYz._V1_FMjpg_UX1000_.jpg",
+                  link: "https://www.google.com/search?q=djalifa+movie"
+                },
+                {
+                  title: "Out in the Darkness",
+                  desc: "A gripping Nigerian drama. (No description found)",
+                  img: "https://m.media-amazon.com/images/M/MV5BZTg2YjYwYjUtYjQwZi00YjQwLTg2YjMtYjQwYjQwYjQwYjQwXkEyXkFqcGdeQXVyMTUzOTczNzYz._V1_FMjpg_UX1000_.jpg",
+                  link: "https://www.google.com/search?q=out+in+the+darkness+naija+movie"
+                },
+              ]
+                .slice(0, showAllPortfolio ? 12 : 4)
+                .map((work, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-slate-950/80 border border-slate-800 rounded-3xl shadow-lg min-w-[320px] max-w-xs flex-shrink-0 group hover:border-cyan-400 transition-all duration-300 flex flex-col"
+                  >
+                    <div className="relative w-full" style={{ aspectRatio: '2/3', minHeight: 320 }}>
+                      <Image
+                        src={work.img}
+                        alt={work.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500 rounded-t-3xl"
+                      />
+                    </div>
+                    <div className="flex-1 flex flex-col p-6">
+                      <h3 className="text-2xl font-bold mb-2 text-white group-hover:text-cyan-400 transition-colors">
+                        {work.title}
+                      </h3>
+                      <p className="text-slate-400 mb-4 flex-1">{work.desc}</p>
+                      <Link href={work.link} target="_blank" rel="noopener noreferrer">
+                        <Button className="bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-semibold px-4 py-2 rounded-full mt-auto w-full">
+                          View
+                        </Button>
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+            </div>
+          </div>
+          <div className="flex justify-center mt-8">
+            <Button
+              className="bg-cyan-700 hover:bg-cyan-600 text-white font-semibold px-8 py-3 rounded-full"
+              onClick={() => setShowAllPortfolio((v) => !v)}
+            >
+              {showAllPortfolio ? "Collapse" : "See More"}
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Modern About Section with Gradient Title */}
       <section id="about" className="py-32 px-6 bg-slate-900 relative overflow-hidden">
         {/* Parallax Background */}
@@ -304,8 +432,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto relative">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div>
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-cyan-500/20 rounded-2xl mb-6">
-                <Headphones className="w-8 h-8 text-cyan-400" />
+              <div className="w-32 h-20 mb-6 rounded-2xl overflow-hidden relative">
+                <Image src="/public/placeholder-logo.png" alt="Studio" fill className="object-cover" />
               </div>
               <h2 className="text-5xl font-bold mb-8 tracking-tight">
                 <span className="bg-gradient-to-r from-white via-cyan-200 to-cyan-400 bg-clip-text text-transparent">
@@ -349,23 +477,20 @@ export default function Home() {
 
             <div className="relative">
               <div
-                className="bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-3xl p-12 border border-cyan-500/30"
+                className="rounded-3xl overflow-hidden border border-cyan-500/30 p-0"
                 style={{
                   transform: `translateY(${scrollY * -0.05}px)`,
                 }}
               >
-                <div className="text-center">
-                  <div className="w-32 h-32 bg-cyan-500/30 rounded-3xl flex items-center justify-center mx-auto mb-8">
-                    <Headphones className="w-16 h-16 text-cyan-400" />
-                  </div>
+                <Image src="/public/placeholder.jpg" alt="Studio" width={400} height={400} className="object-cover w-full h-64" />
+                <div className="text-center p-8">
                   <h3 className="text-2xl font-bold mb-6">
                     <span className="bg-gradient-to-r from-white to-cyan-300 bg-clip-text text-transparent">
                       Professional Equipment
                     </span>
                   </h3>
                   <p className="text-slate-300 leading-relaxed">
-                    Industry-standard Pro Tools HDX systems, Neumann microphones, and premium monitoring solutions for
-                    exceptional audio quality.
+                    Industry-standard Pro Tools HDX systems, Neumann microphones, and premium monitoring solutions for exceptional audio quality.
                   </p>
                 </div>
               </div>
