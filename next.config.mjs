@@ -7,7 +7,11 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
+    domains: [
+      'm.media-amazon.com',
+      'www.imdb.com',
+      'thelagosreview.ng' // Added for Mokalik poster
+    ],
   },
 }
 
