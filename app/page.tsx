@@ -472,8 +472,29 @@ export default function Home() {
                   img: "/recall.jpg",
                   link: "https://www.google.com/search?q=recall+movie+nigeria"
                 },
+                {
+                  slug: "life-and-dirt",
+                  title: "Life and Dirt",
+                  desc: "A moving story of resilience and hope.",
+                  img: "/lifeanddirt.jpg",
+                  link: "https://www.google.com/search?q=life+and+dirt+movie"
+                },
+                {
+                  slug: "out-in-the-darkness",
+                  title: "Out in the Darkness",
+                  desc: "A gripping Nigerian drama. (No description found)",
+                  img: "/Out-in-the-dark.webp",
+                  link: "https://www.google.com/search?q=out+in+the+darkness+naija+movie"
+                },
+                {
+                  slug: "djalifa",
+                  title: "Djalifa",
+                  desc: "A story of love and tradition. (No description found)",
+                  img: "/djalifa.png",
+                  link: "https://www.google.com/search?q=djalifa+movie"
+                },
               ]
-                .slice(0, showAllPortfolio ? 12 : 4)
+                .slice(0, showAllPortfolio ? undefined : 4)
                 .map((work, idx) => (
                   <div
                     key={idx}
@@ -528,24 +549,32 @@ export default function Home() {
           </div>
           <div className="flex flex-wrap items-center justify-center gap-8">
             <div className="flex flex-col items-center">
-              <Image src="/Logonetflix.png" alt="Netflix" width={100} height={60} className="object-contain grayscale hover:grayscale-0 transition-all duration-300 bg-white rounded-lg p-2" />
+              <Image src="/Logonetflix.png" alt="Netflix" width={100} height={60} className="object-contain transition-all duration-300 bg-white rounded-lg p-2" />
               <span className="mt-2 text-sm text-slate-400">Netflix</span>
             </div>
             <div className="flex flex-col items-center">
-              <Image src="/EBONYLIFE-Films-horizontal-Retina.png" alt="EbonyLife" width={100} height={60} className="object-contain grayscale hover:grayscale-0 transition-all duration-300 bg-white rounded-lg p-2" />
-              <span className="mt-2 text-sm text-slate-400">EbonyLife</span>
+              <Image src="/Amazon_Prime_Video_logo.svg.png" alt="Amazon Prime Video" width={100} height={60} className="object-contain transition-all duration-300 bg-white rounded-lg p-2" />
+              <span className="mt-2 text-sm text-slate-400">Amazon Prime Video</span>
             </div>
             <div className="flex flex-col items-center">
-              <Image src="/goldeneddfect.jpeg" alt="Golden Effects" width={100} height={60} className="object-contain grayscale hover:grayscale-0 transition-all duration-300 bg-white rounded-lg p-2" />
+              <Image src="/goldeneddfect.jpeg" alt="Golden Effects" width={100} height={60} className="object-contain transition-all duration-300 bg-white rounded-lg p-2" />
               <span className="mt-2 text-sm text-slate-400">Golden Effects</span>
             </div>
             <div className="flex flex-col items-center">
-              <Image src="/filmone.webp" alt="FilmOne" width={100} height={60} className="object-contain grayscale hover:grayscale-0 transition-all duration-300 bg-white rounded-lg p-2" />
-              <span className="mt-2 text-sm text-slate-400">FilmOne</span>
+              <Image src="/KLM.png" alt="KLM" width={100} height={60} className="object-contain transition-all duration-300 bg-white rounded-lg p-2" />
+              <span className="mt-2 text-sm text-slate-400">KLM</span>
             </div>
             <div className="flex flex-col items-center">
-              <Image src="/Amazon_Prime_Video_logo.svg.png" alt="Amazon Prime Video" width={100} height={60} className="object-contain grayscale hover:grayscale-0 transition-all duration-300 bg-white rounded-lg p-2" />
-              <span className="mt-2 text-sm text-slate-400">Amazon Prime Video</span>
+              <Image src="/Access_Bank_Nigeria.webp" alt="Access Bank" width={100} height={60} className="object-contain transition-all duration-300 bg-white rounded-lg p-2" />
+              <span className="mt-2 text-sm text-slate-400">Access Bank</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <Image src="/Jiji_Logo.png" alt="Jiji" width={100} height={60} className="object-contain transition-all duration-300 bg-white rounded-lg p-2" />
+              <span className="mt-2 text-sm text-slate-400">Jiji</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <Image src="/airfrance.png" alt="Air France" width={100} height={60} className="object-contain transition-all duration-300 bg-white rounded-lg p-2" />
+              <span className="mt-2 text-sm text-slate-400">Air France</span>
             </div>
           </div>
         </div>
