@@ -40,16 +40,22 @@ export default function Home() {
 
   // Add smooth scroll function with header offset
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      const headerHeight = 80 // Account for fixed header
-      const elementPosition = element.offsetTop - headerHeight
-      window.scrollTo({
-        top: elementPosition,
-        behavior: "smooth",
-      })
-    }
-    setMobileMenuOpen(false)
+    setMobileMenuOpen(false);
+    setTimeout(() => {
+      if (sectionId === "home") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const headerHeight = 80; // Account for fixed header
+          const elementPosition = element.offsetTop - headerHeight;
+          window.scrollTo({
+            top: elementPosition,
+            behavior: "smooth",
+          });
+        }
+      }
+    }, 50);
   }
 
   // Studio images for hero slider
@@ -73,7 +79,7 @@ export default function Home() {
       {/* Modern Compact Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-xl border-b border-cyan-500/10">
         <nav className="relative flex items-center justify-between max-w-7xl mx-auto px-6 py-4">
-          <div className="text-2xl font-bold tracking-tight text-cyan-400">Reak Studios</div>
+          <div className="text-2xl font-bold tracking-tight text-cyan-400 font-serif font-dm-sans">Reak Studios</div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
@@ -99,6 +105,13 @@ export default function Home() {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
             </button>
             <button
+              onClick={() => scrollToSection("team")}
+              className="text-sm font-medium hover:text-cyan-400 transition-colors duration-300 relative group"
+            >
+              Team
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
+            </button>
+            <button
               onClick={() => scrollToSection("about")}
               className="text-sm font-medium hover:text-cyan-400 transition-colors duration-300 relative group"
             >
@@ -106,15 +119,13 @@ export default function Home() {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
             </button>
             <button
-              onClick={() => scrollToSection("contact")}
+              onClick={() => scrollToSection("contact-form")}
               className="text-sm font-medium hover:text-cyan-400 transition-colors duration-300 relative group"
             >
               Contact
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
             </button>
-            <Button className="bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-semibold px-6 py-2 rounded-full">
-              Book Session
-            </Button>
+            <Button className="bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-semibold px-6 py-2 rounded-full" onClick={() => scrollToSection("contact-form")}>Book Session</Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -146,20 +157,26 @@ export default function Home() {
                 Portfolio
               </button>
               <button
+                onClick={() => scrollToSection("team")}
+                className="block text-sm font-medium hover:text-cyan-400 transition-colors py-2 w-full text-left"
+              >
+                Team
+              </button>
+              <button
                 onClick={() => scrollToSection("about")}
                 className="block text-sm font-medium hover:text-cyan-400 transition-colors py-2 w-full text-left"
               >
                 About
               </button>
               <button
-                onClick={() => scrollToSection("contact")}
+                onClick={() => scrollToSection("contact-form")}
                 className="block text-sm font-medium hover:text-cyan-400 transition-colors py-2 w-full text-left"
               >
                 Contact
               </button>
               <Button
                 className="bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-semibold px-6 py-2 rounded-full w-full mt-4"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => { setMobileMenuOpen(false); scrollToSection("contact-form"); }}
               >
                 Book Session
               </Button>
@@ -493,6 +510,27 @@ export default function Home() {
                   img: "/djalifa.png",
                   link: "https://www.google.com/search?q=djalifa+movie"
                 },
+                {
+                  slug: "ijogbon",
+                  title: "Ijogbon",
+                  desc: "A coming-of-age adventure about four teenagers whose lives change after a mysterious discovery.",
+                  img: "/ijogbon.jpg",
+                  link: "https://www.imdb.com/title/tt28706446/"
+                },
+                {
+                  slug: "naija-christmas",
+                  title: "Naija Christmas",
+                  desc: "A fun Nigerian holiday film about family, love, and surprises.",
+                  img: "/Naija Christmas.jpg",
+                  link: "https://www.imdb.com/title/tt16390802/"
+                },
+                {
+                  slug: "accroche-hooked",
+                  title: "Accroche HOOKED",
+                  desc: "A captivating story of connection and transformation.",
+                  img: "/accroche.jpg",
+                  link: "https://www.imdb.com/title/tt32212345/"
+                },
               ]
                 .slice(0, showAllPortfolio ? undefined : 4)
                 .map((work, idx) => (
@@ -538,6 +576,30 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Team Section */}
+      <section id="team" className="py-32 px-6 bg-slate-950 border-t border-slate-800">
+        <div className="max-w-7xl mx-auto text-center">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-cyan-500/20 rounded-2xl mb-6">
+            <Users className="w-8 h-8 text-cyan-400" />
+          </div>
+          <h2 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight bg-gradient-to-r from-white via-cyan-200 to-cyan-400 bg-clip-text text-transparent">
+            Meet Our Team
+          </h2>
+          <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-16">
+            The passionate professionals behind Reak Studios' world-class sound.
+          </p>
+          <div className="flex justify-center">
+            <div className="bg-slate-900/70 rounded-2xl p-8 border border-slate-800 flex flex-col items-center mx-auto">
+              <Image src="/anuafolayan.jpg" alt="Anu Afolayan" width={100} height={100} className="rounded-full mb-4 object-cover" />
+              <h3 className="text-xl font-bold text-white mb-1">Anu Afolayan</h3>
+              <p className="text-cyan-400 mb-2">Composer & Sound Designer</p>
+              <p className="text-slate-400 text-sm mb-4">Renowned for original scores and immersive soundscapes in Nollywood.</p>
+              <a href="https://en.wikipedia.org/wiki/Anu_Afolayan" target="_blank" rel="noopener noreferrer" className="text-cyan-400 underline text-sm hover:text-cyan-300">Wikipedia</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Clients Section */}
       <section id="clients" className="py-12 px-4 bg-slate-900 border-t border-slate-800">
         <div className="max-w-7xl mx-auto">
@@ -548,6 +610,7 @@ export default function Home() {
             </h2>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-8">
+            {/* Only real client logos remain, remove EbonyLife Films, FilmOne, Africa Magic, MTN */}
             <div className="flex flex-col items-center">
               <Image src="/Logonetflix.png" alt="Netflix" width={100} height={60} className="object-contain transition-all duration-300 bg-white rounded-lg p-2" />
               <span className="mt-2 text-sm text-slate-400">Netflix</span>
@@ -561,20 +624,56 @@ export default function Home() {
               <span className="mt-2 text-sm text-slate-400">Golden Effects</span>
             </div>
             <div className="flex flex-col items-center">
-              <Image src="/KLM.png" alt="KLM" width={100} height={60} className="object-contain transition-all duration-300 bg-white rounded-lg p-2" />
-              <span className="mt-2 text-sm text-slate-400">KLM</span>
+              <Image src="/kapmotion.jpeg" alt="KAP Motion Pictures" width={100} height={60} className="object-contain transition-all duration-300 bg-white rounded-lg p-2" />
+              <span className="mt-2 text-sm text-slate-400">KAP Motion Pictures</span>
             </div>
             <div className="flex flex-col items-center">
-              <Image src="/Access_Bank_Nigeria.webp" alt="Access Bank" width={100} height={60} className="object-contain transition-all duration-300 bg-white rounded-lg p-2" />
-              <span className="mt-2 text-sm text-slate-400">Access Bank</span>
+              <Image src="/Michelle D. Prod.jpg" alt="Michelle D. Prod" width={100} height={60} className="object-contain transition-all duration-300 bg-white rounded-lg p-2" />
+              <span className="mt-2 text-sm text-slate-400">Michelle D. Prod</span>
             </div>
             <div className="flex flex-col items-center">
-              <Image src="/Jiji_Logo.png" alt="Jiji" width={100} height={60} className="object-contain transition-all duration-300 bg-white rounded-lg p-2" />
-              <span className="mt-2 text-sm text-slate-400">Jiji</span>
+              <Image src="/Rock Bottom Flix.jpg" alt="Rock Bottom Flix" width={100} height={60} className="object-contain transition-all duration-300 bg-white rounded-lg p-2" />
+              <span className="mt-2 text-sm text-slate-400">Rock Bottom Flix</span>
             </div>
             <div className="flex flex-col items-center">
-              <Image src="/airfrance.png" alt="Air France" width={100} height={60} className="object-contain transition-all duration-300 bg-white rounded-lg p-2" />
-              <span className="mt-2 text-sm text-slate-400">Air France</span>
+              <Image src="/Sarah Stellah - Kwaji Productions.jpg" alt="Sarah Stellah - Kwaji Productions" width={100} height={60} className="object-contain transition-all duration-300 bg-white rounded-lg p-2" />
+              <span className="mt-2 text-sm text-slate-400">Sarah Stellah - Kwaji Productions</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <Image src="/Laocoe.jpg" alt="Laocoe" width={100} height={60} className="object-contain transition-all duration-300 bg-white rounded-lg p-2" />
+              <span className="mt-2 text-sm text-slate-400">Laocoe</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Awards Section */}
+      <section id="awards" className="py-32 px-6 bg-slate-900 border-t border-slate-800">
+        <div className="max-w-7xl mx-auto text-center">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-cyan-500/20 rounded-2xl mb-6">
+            <Award className="w-8 h-8 text-cyan-400" />
+          </div>
+          <h2 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight bg-gradient-to-r from-white via-cyan-200 to-cyan-400 bg-clip-text text-transparent">
+            Awards & Recognition
+          </h2>
+          <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-16">
+            Celebrating our achievements and industry recognition for excellence in audio post-production.
+          </p>
+          <div className="grid grid-cols-1 gap-12 justify-center items-center">
+            <div className="bg-slate-950/80 rounded-2xl p-8 border border-slate-800 flex flex-col items-center mx-auto">
+              <Image src="/Citation_(film).jpg" alt="Citation Movie Poster" width={120} height={180} className="rounded-xl mb-4 object-cover shadow-lg" />
+              <Award className="w-10 h-10 text-cyan-400 mb-4" />
+              <h3 className="text-xl font-bold text-white mb-1">Citation</h3>
+              <p className="text-cyan-400 mb-2">Africa Movie Academy Awards, 2021</p>
+              <ul className="text-slate-400 text-sm mb-2 text-left mx-auto max-w-xs">
+                <li>Best Actress in a Supporting Role: <span className="text-cyan-400">Nominated</span></li>
+                <li>Best Nigerian Film: <span className="text-cyan-400">Nominated</span></li>
+                <li>Best Soundtrack: <span className="text-cyan-400 font-bold">Won</span></li>
+              </ul>
+              <p className="text-cyan-400 mb-2">The National Film Awards, 2022</p>
+              <ul className="text-slate-400 text-sm text-left mx-auto max-w-xs">
+                <li>Best International Film: <span className="text-cyan-400 font-bold">Won</span></li>
+              </ul>
             </div>
           </div>
         </div>
@@ -598,7 +697,7 @@ export default function Home() {
       </section>
 
       {/* Redesigned Get in Touch Section with Icon Header */}
-      <section id="contact" className="py-20 px-4 bg-slate-950 relative z-10">
+      <section id="contact-form" className="py-20 px-4 bg-slate-950 relative z-10">
         <div className="max-w-7xl mx-auto relative">
           <div className="flex items-center justify-center mb-20 space-x-4">
             <Mail className="w-10 h-10 text-cyan-400" />
@@ -626,7 +725,7 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <div className="bg-slate-900/50 backdrop-blur-sm rounded-3xl p-12 border border-slate-800">
+            <div id="contact-form" className="bg-slate-900/50 backdrop-blur-sm rounded-3xl p-12 border border-slate-800">
               <h3 className="text-3xl font-bold mb-8 bg-gradient-to-r from-white to-cyan-300 bg-clip-text text-transparent">
                 Book Your Session
               </h3>
@@ -665,10 +764,21 @@ export default function Home() {
       </section>
 
       {/* Modern Footer */}
-      <footer className="py-16 px-6 bg-slate-900 border-t border-slate-800">
+      <footer className="py-16 px-6 bg-slate-900 border-t border-slate-800 relative">
+        {/* Back to Top Floating Button */}
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="fixed bottom-8 right-8 z-50 bg-cyan-500 hover:bg-cyan-600 text-white rounded-full shadow-lg p-4 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+          aria-label="Back to top"
+          style={{ boxShadow: '0 4px 24px 0 rgba(0,255,255,0.15)' }}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+          </svg>
+        </button>
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-3xl font-bold text-cyan-400 mb-6 md:mb-0">Reak Studios</div>
+            <div className="text-3xl font-bold text-cyan-400 mb-6 md:mb-0 font-serif font-dm-sans">Reak Studios</div>
             <div className="text-center md:text-right">
               <p className="text-slate-400 mb-2">© 2024 Reak Studios. All rights reserved.</p>
               <p className="text-sm text-slate-500">Professional Audio Production • Magboro, Ogun State</p>
