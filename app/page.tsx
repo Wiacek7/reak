@@ -125,7 +125,6 @@ export default function Home() {
               Contact
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
             </button>
-            <Button className="bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-semibold px-6 py-2 rounded-full" onClick={() => scrollToSection("contact-form")}>Book Session</Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -589,12 +588,12 @@ export default function Home() {
             The passionate professionals behind Reak Studios' world-class sound.
           </p>
           <div className="flex justify-center">
-            <div className="bg-slate-900/70 rounded-2xl p-8 border border-slate-800 flex flex-col items-center mx-auto">
-              <Image src="/anuafolayan.jpg" alt="Anu Afolayan" width={100} height={100} className="rounded-full mb-4 object-cover" />
-              <h3 className="text-xl font-bold text-white mb-1">Anu Afolayan</h3>
-              <p className="text-cyan-400 mb-2">Composer & Sound Designer</p>
-              <p className="text-slate-400 text-sm mb-4">Renowned for original scores and immersive soundscapes in Nollywood.</p>
-              <a href="https://en.wikipedia.org/wiki/Anu_Afolayan" target="_blank" rel="noopener noreferrer" className="text-cyan-400 underline text-sm hover:text-cyan-300">Wikipedia</a>
+            <div className="bg-slate-900/70 rounded-2xl p-4 border border-slate-800 flex flex-col items-center mx-auto w-64">
+              <Image src="/anuafolayan.jpg" alt="Anu Afolayan" width={200} height={200} className="rounded-full mb-4 object-cover shadow-lg border-4 border-cyan-500" />
+              <h3 className="text-lg font-bold text-white mb-1">Anu Afolayan</h3>
+              <p className="text-cyan-400 mb-1">Composer & Sound Designer</p>
+              <p className="text-slate-400 text-xs mb-3 text-center">Renowned for original scores and immersive soundscapes in Nollywood.</p>
+              <a href="https://en.wikipedia.org/wiki/Anu_Afolayan" target="_blank" rel="noopener noreferrer" className="text-cyan-400 underline text-xs hover:text-cyan-300">Wikipedia</a>
             </div>
           </div>
         </div>
@@ -660,20 +659,28 @@ export default function Home() {
             Celebrating our achievements and industry recognition for excellence in audio post-production.
           </p>
           <div className="grid grid-cols-1 gap-12 justify-center items-center">
-            <div className="bg-slate-950/80 rounded-2xl p-8 border border-slate-800 flex flex-col items-center mx-auto">
-              <Image src="/Citation_(film).jpg" alt="Citation Movie Poster" width={120} height={180} className="rounded-xl mb-4 object-cover shadow-lg" />
-              <Award className="w-10 h-10 text-cyan-400 mb-4" />
-              <h3 className="text-xl font-bold text-white mb-1">Citation</h3>
-              <p className="text-cyan-400 mb-2">Africa Movie Academy Awards, 2021</p>
-              <ul className="text-slate-400 text-sm mb-2 text-left mx-auto max-w-xs">
-                <li>Best Actress in a Supporting Role: <span className="text-cyan-400">Nominated</span></li>
-                <li>Best Nigerian Film: <span className="text-cyan-400">Nominated</span></li>
-                <li>Best Soundtrack: <span className="text-cyan-400 font-bold">Won</span></li>
-              </ul>
-              <p className="text-cyan-400 mb-2">The National Film Awards, 2022</p>
-              <ul className="text-slate-400 text-sm text-left mx-auto max-w-xs">
-                <li>Best International Film: <span className="text-cyan-400 font-bold">Won</span></li>
-              </ul>
+            <div className="flex flex-wrap justify-center gap-8">
+              <div className="bg-slate-950/80 rounded-2xl p-4 border border-slate-800 flex flex-col items-center w-64">
+                <Image src="/Citation_(film).jpg" alt="Citation Movie Poster" width={160} height={200} className="rounded-xl mb-3 object-cover shadow-lg border-4 border-cyan-500" />
+                <Award className="w-8 h-8 text-cyan-400 mb-2" />
+                <h3 className="text-lg font-bold text-white mb-1">Citation</h3>
+                <p className="text-cyan-400 mb-1 text-center">Best Soundtrack Winner</p>
+                <p className="text-slate-400 text-xs mb-2 text-center">Africa Movie Academy Awards & National Film Awards, 2021-2022</p>
+              </div>
+              <div className="bg-slate-950/80 rounded-2xl p-4 border border-slate-800 flex flex-col items-center w-64">
+                <Image src="/Anikulapo-1.webp" alt="Anikulapo Movie Poster" width={160} height={200} className="rounded-xl mb-3 object-cover shadow-lg border-4 border-cyan-500" />
+                <Award className="w-8 h-8 text-cyan-400 mb-2" />
+                <h3 className="text-lg font-bold text-white mb-1">Anikulapo</h3>
+                <p className="text-cyan-400 mb-1 text-center">AMVCA 2023: 5 Awards</p>
+                <ul className="text-slate-400 text-xs mb-2 text-center list-disc list-inside">
+                  <li>Best Indigenous Language (Yoruba)</li>
+                  <li>Best Overall Movie</li>
+                  <li>Best Sound Editor</li>
+                  <li>Best Writer</li>
+                  <li>Best Sound Track</li>
+                </ul>
+                <p className="text-slate-400 text-xs text-center">Won 5 out of 16 nominations at the Africa Magic Viewers' Choice Awards</p>
+              </div>
             </div>
           </div>
         </div>
@@ -705,60 +712,23 @@ export default function Home() {
               Get In Touch
             </h2>
           </div>
-          <div className="grid lg:grid-cols-2 gap-16 mt-12">
-            {/* Added mt-12 for more spacing above the booking form */}
-            <div className="space-y-8">
-              {[
-                { icon: <MapPin className="w-8 h-8 text-cyan-400" />, title: "Studio Location", content: "8, Kole Osho Way\nAbule Oko Road, Magboro\nOgun State, Nigeria" },
-                { icon: <Phone className="w-8 h-8 text-cyan-400" />, title: "Phone", content: "07019246326" },
-                { icon: <Mail className="w-8 h-8 text-cyan-400" />, title: "Email", content: "reakstudios@hotmail.com" },
-                { icon: <Clock className="w-8 h-8 text-cyan-400" />, title: "Studio Hours", content: "Monday - Saturday\n8:00 AM - 6:00 PM" },
-              ].map((item, index) => (
-                <div key={index} className="flex items-start space-x-6 group">
-                  <div className="w-16 h-16 bg-cyan-500/20 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/30 transition-all duration-300">
-                    {item.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-3 text-white">{item.title}</h3>
-                    <p className="text-slate-300 whitespace-pre-line">{item.content}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div id="contact-form" className="bg-slate-900/50 backdrop-blur-sm rounded-3xl p-12 border border-slate-800">
-              <h3 className="text-3xl font-bold mb-8 bg-gradient-to-r from-white to-cyan-300 bg-clip-text text-transparent">
-                Book Your Session
-              </h3>
-              <form className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium mb-3 text-slate-300">Full Name</label>
-                    <input type="text" className="w-full px-4 py-4 bg-slate-800/50 border border-slate-700 rounded-xl focus:border-cyan-400 focus:outline-none transition-colors duration-300 text-white" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-3 text-slate-300">Email</label>
-                    <input type="email" className="w-full px-4 py-4 bg-slate-800/50 border border-slate-700 rounded-xl focus:border-cyan-400 focus:outline-none transition-colors duration-300 text-white" />
-                  </div>
+          <div className="space-y-8 max-w-xl mx-auto">
+            {[
+              { icon: <MapPin className="w-8 h-8 text-cyan-400" />, title: "Studio Location", content: "8, Kole Osho Way\nAbule Oko Road, Magboro\nOgun State, Nigeria" },
+              { icon: <Phone className="w-8 h-8 text-cyan-400" />, title: "Phone", content: "07019246326" },
+              { icon: <Mail className="w-8 h-8 text-cyan-400" />, title: "Email", content: "reakstudios@hotmail.com" },
+              { icon: <Clock className="w-8 h-8 text-cyan-400" />, title: "Studio Hours", content: "Monday - Saturday\n8:00 AM - 6:00 PM" },
+            ].map((item, index) => (
+              <div key={index} className="flex items-start space-x-6 group">
+                <div className="w-16 h-16 bg-cyan-500/20 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/30 transition-all duration-300">
+                  {item.icon}
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-3 text-slate-300">Service</label>
-                  <select className="w-full px-4 py-4 bg-slate-800/50 border border-slate-700 rounded-xl focus:border-cyan-400 focus:outline-none transition-colors duration-300 text-white">
-                    <option>Select a service</option>
-                    <option>Film Audio Post-Production</option>
-                    <option>Voice Over Recording</option>
-                    <option>Music Scoring</option>
-                    <option>Sound Design</option>
-                  </select>
+                  <h3 className="text-xl font-bold mb-3 text-white">{item.title}</h3>
+                  <p className="text-slate-300 whitespace-pre-line">{item.content}</p>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium mb-3 text-slate-300">Project Details</label>
-                  <textarea rows={4} className="w-full px-4 py-4 bg-slate-800/50 border border-slate-700 rounded-xl focus:border-cyan-400 focus:outline-none transition-colors duration-300 text-white resize-none" placeholder="Tell us about your project..."></textarea>
-                </div>
-                <Button className="w-full bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-semibold py-4 rounded-xl text-lg transition-all duration-300 hover:scale-[1.02]">
-                  Send Message
-                </Button>
-              </form>
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -779,6 +749,25 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-3xl font-bold text-cyan-400 mb-6 md:mb-0 font-serif font-dm-sans">Reak Studios</div>
+            <div className="flex items-center space-x-6 mb-4 md:mb-0">
+              <a href="https://instagram.com/reak.studios" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-cyan-400 hover:text-cyan-300 text-2xl">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} className="w-7 h-7">
+                  <rect width="18" height="18" x="3" y="3" rx="5" stroke="currentColor" strokeWidth="1.5"/>
+                  <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.5"/>
+                  <circle cx="17" cy="7" r="1" fill="currentColor"/>
+                </svg>
+              </a>
+              <a href="https://tiktok.com/@reak.studios1" target="_blank" rel="noopener noreferrer" aria-label="Tiktok" className="text-cyan-400 hover:text-cyan-300 text-2xl">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-7 h-7">
+                  <path d="M12.5 2h2v2.5a5.5 5.5 0 0 0 5.5 5.5V12a7.5 7.5 0 1 1-7.5-7.5h0V2zm0 4A5.5 5.5 0 1 0 18 11.5V10a7.5 7.5 0 1 1-7.5-7.5h2z"/>
+                </svg>
+              </a>
+              <a href="https://facebook.com/reak" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-cyan-400 hover:text-cyan-300 text-2xl">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-7 h-7">
+                  <path d="M17 2.1c-2.8 0-5 2.2-5 5v2H9v3h3v7h3v-7h2.1l.4-3H15V7.1c0-.6.4-1 1-1h1V3.1c-.3 0-.7 0-1 0z"/>
+                </svg>
+              </a>
+            </div>
             <div className="text-center md:text-right">
               <p className="text-slate-400 mb-2">© 2024 Reak Studios. All rights reserved.</p>
               <p className="text-sm text-slate-500">Professional Audio Production • Magboro, Ogun State</p>
