@@ -418,19 +418,20 @@ export default function Home() {
           <div className={showAllPortfolio ? "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8" : "overflow-x-auto pb-4"}>
             <div className={showAllPortfolio ? "contents" : "flex space-x-8 min-w-[700px] md:min-w-0"}>
               {[
-                {
-                  slug: "anikulapo-movie",
-                  title: "Anikulapo (Movie)",
-                  desc: "A mystical drama about Saro, a man who gains the power to conquer death. (Feature film)",
-                  img: "/Anikulapo-1.webp",
-                  link: "https://www.imdb.com/title/tt21432050/"
-                },
+
                 {
                   slug: "anikulapo",
+                  title: "Anikulapo (Movie)",
+                  desc: "A mystical drama about Saro, a man who gains the power to conquer death. (Feature film)",
+                  img: "/Anikulapo-1.webp movie.jpg",
+                  link: "https://www.imdb.com/title/tt32212345/"
+                },
+                {
+                  slug: "anikulapo-movie",
                   title: "Anikulapo (Series)",
                   desc: "The epic series following Saro's journey after the events of the movie.",
-                  img: "/anikulapo-series.jpg",
-                  link: "https://www.imdb.com/title/tt32212345/"
+                  img: "/Anikulapo-1.webp",
+                  link: "https://www.imdb.com/title/tt21432050/"
                 },
                 {
                   slug: "citation",
@@ -668,7 +669,7 @@ export default function Home() {
           <div className="grid grid-cols-1 gap-12 justify-center items-center">
             <div className="flex flex-wrap justify-center gap-8">
               <div className="bg-slate-950/80 rounded-2xl p-4 border border-slate-800 flex flex-col items-center w-64">
-                <Image src="/Anikulapo-1.webp" alt="Anikulapo Movie Poster" width={160} height={200} className="rounded-xl mb-3 object-cover shadow-lg border-4 border-cyan-500" />
+                <Image src="/Anikulapo-1.webp movie.jpg" alt="Anikulapo Movie Poster" width={160} height={200} className="rounded-xl mb-3 object-cover shadow-lg border-4 border-cyan-500" />
                 <Award className="w-8 h-8 text-cyan-400 mb-2" />
                 <h3 className="text-lg font-bold text-white mb-1">Anikulapo (Movie)</h3>
                 <p className="text-cyan-400 mb-1 text-center">AMVCA 2023: Best Sound Editor</p>
