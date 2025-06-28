@@ -419,11 +419,18 @@ export default function Home() {
             <div className={showAllPortfolio ? "contents" : "flex space-x-8 min-w-[700px] md:min-w-0"}>
               {[
                 {
-                  slug: "anikulapo",
-                  title: "Anikulapo",
-                  desc: "A mystical drama about Saro, a man who gains the power to conquer death.",
+                  slug: "anikulapo-movie",
+                  title: "Anikulapo (Movie)",
+                  desc: "A mystical drama about Saro, a man who gains the power to conquer death. (Feature film)",
                   img: "/Anikulapo-1.webp",
                   link: "https://www.imdb.com/title/tt21432050/"
+                },
+                {
+                  slug: "anikulapo",
+                  title: "Anikulapo (Series)",
+                  desc: "The epic series following Saro's journey after the events of the movie.",
+                  img: "/anikulapo-series.jpg",
+                  link: "https://www.imdb.com/title/tt32212345/"
                 },
                 {
                   slug: "citation",
@@ -589,7 +596,7 @@ export default function Home() {
           </p>
           <div className="flex justify-center">
             <div className="bg-slate-900/70 rounded-2xl p-4 border border-slate-800 flex flex-col items-center mx-auto w-64">
-              <Image src="/anuafolayan.jpg" alt="Anu Afolayan" width={200} height={200} className="rounded-full mb-4 object-cover shadow-lg border-4 border-cyan-500" />
+              <Image src="/anu-newimage.jpg" alt="Anu Afolayan" width={200} height={200} className="rounded-full mb-4 object-cover shadow-lg border-4 border-cyan-500" />
               <h3 className="text-lg font-bold text-white mb-1">Anu Afolayan</h3>
               <p className="text-cyan-400 mb-1">Composer & Sound Designer</p>
               <p className="text-slate-400 text-xs mb-3 text-center">Renowned for original scores and immersive soundscapes in Nollywood.</p>
@@ -661,25 +668,18 @@ export default function Home() {
           <div className="grid grid-cols-1 gap-12 justify-center items-center">
             <div className="flex flex-wrap justify-center gap-8">
               <div className="bg-slate-950/80 rounded-2xl p-4 border border-slate-800 flex flex-col items-center w-64">
+                <Image src="/Anikulapo-1.webp" alt="Anikulapo Movie Poster" width={160} height={200} className="rounded-xl mb-3 object-cover shadow-lg border-4 border-cyan-500" />
+                <Award className="w-8 h-8 text-cyan-400 mb-2" />
+                <h3 className="text-lg font-bold text-white mb-1">Anikulapo (Movie)</h3>
+                <p className="text-cyan-400 mb-1 text-center">AMVCA 2023: Best Sound Editor</p>
+                <p className="text-slate-400 text-xs text-center">Africa Magic Viewers' Choice Awards</p>
+              </div>
+              <div className="bg-slate-950/80 rounded-2xl p-4 border border-slate-800 flex flex-col items-center w-64">
                 <Image src="/Citation_(film).jpg" alt="Citation Movie Poster" width={160} height={200} className="rounded-xl mb-3 object-cover shadow-lg border-4 border-cyan-500" />
                 <Award className="w-8 h-8 text-cyan-400 mb-2" />
                 <h3 className="text-lg font-bold text-white mb-1">Citation</h3>
-                <p className="text-cyan-400 mb-1 text-center">Best Soundtrack Winner</p>
+                <p className="text-cyan-400 mb-1 text-center">Multiple Nominations</p>
                 <p className="text-slate-400 text-xs mb-2 text-center">Africa Movie Academy Awards & National Film Awards, 2021-2022</p>
-              </div>
-              <div className="bg-slate-950/80 rounded-2xl p-4 border border-slate-800 flex flex-col items-center w-64">
-                <Image src="/Anikulapo-1.webp" alt="Anikulapo Movie Poster" width={160} height={200} className="rounded-xl mb-3 object-cover shadow-lg border-4 border-cyan-500" />
-                <Award className="w-8 h-8 text-cyan-400 mb-2" />
-                <h3 className="text-lg font-bold text-white mb-1">Anikulapo</h3>
-                <p className="text-cyan-400 mb-1 text-center">AMVCA 2023: 5 Awards</p>
-                <ul className="text-slate-400 text-xs mb-2 text-center list-disc list-inside">
-                  <li>Best Indigenous Language (Yoruba)</li>
-                  <li>Best Overall Movie</li>
-                  <li>Best Sound Editor</li>
-                  <li>Best Writer</li>
-                  <li>Best Sound Track</li>
-                </ul>
-                <p className="text-slate-400 text-xs text-center">Won 5 out of 16 nominations at the Africa Magic Viewers' Choice Awards</p>
               </div>
             </div>
           </div>
